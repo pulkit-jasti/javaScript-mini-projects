@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Essay Writing Tool</title>
+
+		<link rel="icon" href="icon.png" />
+		<link rel="stylesheet" href="css/style.min.css" />
+	</head>
+
+	<body>
+		<section class="background">
+			<div class="background-lines">
+				<div class="line-1"></div>
+				<div class="line-2"></div>
+				<div class="line-3"></div>
+				<!--<div class="line-4"></div>-->
+				<div class="line-5"></div>
+				<div class="line-6"></div>
+			</div>
+		</section>
+		<section class="main-page">
+			<div class="top-bar">
+				<div class="box">
+					<div class="info" id="word-lim">Word Limit</div>
+					<div class="info" id="char-lim">Character Limit</div>
+				</div>
+				<div class="box">
+					<button id="word-limit" onclick="enableSetWordLimit()">Set Word Limit</button>
+					<button id="char-limit" onclick="enableSetCharLimit()">Set Char Limit</button>
+				</div>
+				<div class="box">
+					<div class="info" id="word-count">Word Count</div>
+					<div class="info" id="char-count">Character Count</div>
+				</div>
+			</div>
+			<textarea id="main-input" cols="30" rows="10"></textarea>
+		</section>
+
+		<section id="word-limit-overlay" class="info-overlay">
+			<div class="warning-container">
+				<div class="text">
+					<span id="warning">WARNING</span>
+					<span id="message">You've exceeded your word limit</span>
+				</div>
+				<div class="button-container">
+					<button id="meh" onclick="disableWordLimitWarning()">
+						meh... I wanna keep going
+					</button>
+					<button id="thanks" onclick="disableWordLimitWarning()">
+						Thank you for letting me know
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="char-limit-overlay" class="info-overlay">
+			<div class="warning-container">
+				<div class="text">
+					<span id="warning">WARNING</span>
+					<span id="message">You've exceeded your Character limit</span>
+				</div>
+				<div class="button-container">
+					<button class="meh" onclick="disableCharLimitWarning()">
+						meh... I wanna keep going
+					</button>
+					<button id="thanks" onclick="disableCharLimitWarning()">
+						Thank you for letting me know
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="set-word-limit" class="info-overlay">
+			<div class="warning-container">
+				<div class="text">
+					<span id="warning">Set Word Limit</span>
+					<span id="message">Enter the word limit in the text box below <br />(an integer)</span>
+				</div>
+				<input id="word-limit-input" type="number" />
+				<button onclick="submitWordLimit()">Set Limit</button>
+			</div>
+		</section>
+
+		<section id="set-char-limit" class="info-overlay">
+			<div class="warning-container">
+				<div class="text">
+					<span id="warning">Set Character Limit</span>
+					<span id="message">Enter the character limit in the text box below <br />(an integer)</span>
+				</div>
+				<input id="char-limit-input" type="number" />
+				<button onclick="submitCharLimit()">Set Limit</button>
+			</div>
+		</section>
+
+		<script src="script.js"></script>
+	</body>
+</html>

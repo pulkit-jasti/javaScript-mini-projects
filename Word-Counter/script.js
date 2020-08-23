@@ -21,9 +21,7 @@ setInterval(() => {
 
 	console.log(wordsLen);
 	document.getElementById('word-count').innerHTML = `Words: ${wordsLen}`;
-	document.getElementById(
-		'char-count'
-	).innerHTML = `Characters: ${sentence.length}`;
+	document.getElementById('char-count').innerHTML = `Characters: ${sentence.length}`;
 	document.getElementById('word-lim').innerHTML = `Word Limit: ${wordLimit}`;
 }, 100);
 
@@ -36,4 +34,15 @@ let disableWarning = () => {
 	document.getElementById('overlay').style.display = 'none';
 	ignore = true;
 	document.getElementById('main-input').maxLength = 524288; //default
+};
+
+let enableSetWordLimit = () => {
+	console.log('set limit window enabled');
+	document.getElementById('set-word-limit').style.display = 'flex';
+};
+
+let setWordLimit = () => {
+	console.log(document.getElementById('word-limit-input').value);
+	wordLimit = document.getElementById('word-limit-input').value;
+	document.getElementById('set-word-limit').style.display = 'none';
 };

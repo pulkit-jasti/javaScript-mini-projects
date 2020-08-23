@@ -1,5 +1,3 @@
-let ignoreWordLimitWarning = false;
-let ignoreCharacterLimitWarning = false;
 let wordLimitExist = false;
 let charLimitExist = false;
 let wordLimit = 0;

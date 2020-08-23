@@ -1,5 +1,7 @@
 let ignoreWordLimitWarning = false;
 let ignoreCharacterLimitWarning = false;
+let wordLimitExist = false;
+let charLimitExist = false;
 let wordLimit = 0;
 let charLimit = 0;
 
@@ -17,32 +19,39 @@ setInterval(() => {
 		wordsLen -= 1;
 	}
 
-	if (wordsLen > wordLimit && ignoreWordLimitWarning == false) {
-		enableWordLimit();
+	if (wordLimitExist == true) {
+		if (wordsLen > wordLimit) {
+			enableWordLimit();
+		}
+		document.getElementById('word-lim').innerHTML = `Word Limit: ${wordLimit}`;
+	} else {
+		document.getElementById('word-lim').innerHTML = `Word Limit: None`;
 	}
 
-	if (sentence.length > charLimit && ignoreCharacterLimitWarning == false) {
-		enableCharLimit();
-		//console.log('character limit exceeded');
+	if (charLimitExist == true) {
+		if (sentence.length > charLimit) {
+			enableCharLimit();
+			//console.log('character limit exceeded');
+		}
+		document.getElementById('char-lim').innerHTML = `Character Limit: ${charLimit}`;
+	} else {
+		document.getElementById('char-lim').innerHTML = `Character Limit: None`;
 	}
 
 	console.log(wordsLen);
 	document.getElementById('word-count').innerHTML = `Words: ${wordsLen}`;
 	document.getElementById('char-count').innerHTML = `Characters: ${sentence.length}`;
-	document.getElementById('word-lim').innerHTML = `Word Limit: ${wordLimit}`;
-	document.getElementById('char-lim').innerHTML = `Character Limit: ${charLimit}`;
 }, 100);
 
 //WORD LIMIT FUNCTIONS
 
 let enableSetWordLimit = () => {
-	console.log('set word limit window enabled');
 	document.getElementById('set-word-limit').style.display = 'flex';
 };
 
 let submitWordLimit = () => {
-	console.log(document.getElementById('word-limit-input').value);
 	wordLimit = document.getElementById('word-limit-input').value;
+	wordLimitExist = true;
 	document.getElementById('set-word-limit').style.display = 'none';
 };
 
@@ -53,8 +62,8 @@ let enableWordLimit = () => {
 
 let disableWordLimitWarning = () => {
 	document.getElementById('word-limit-overlay').style.display = 'none';
-	ignoreWordLimitWarning = true;
 	document.getElementById('main-input').maxLength = 524288; //default
+	wordLimitExist = false;
 };
 
 // WORD LIMIT FUNCTIONS ENDS
@@ -64,12 +73,12 @@ let disableWordLimitWarning = () => {
 // CHARACTER LIMIT FUNCTIONS
 
 let enableSetCharLimit = () => {
-	console.log('set character limit window enabled');
 	document.getElementById('set-char-limit').style.display = 'flex';
 };
 
 let submitCharLimit = () => {
 	charLimit = document.getElementById('char-limit-input').value;
+	charLimitExist = true;
 	document.getElementById('set-char-limit').style.display = 'none';
 };
 
@@ -81,7 +90,8 @@ let enableCharLimit = () => {
 let disableCharLimitWarning = () => {
 	document.getElementById('char-limit-overlay').style.display = 'none';
 	document.getElementById('main-input').maxLength = 524288; //default
-	ignoreCharacterLimitWarning = true;
+	charLimitExist = false;
+	//ignoreCharacterLimitWarning = true;
 };
 
 // CHARACTER LIMIT FUNCTIONS ENDS

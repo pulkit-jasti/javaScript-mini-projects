@@ -14,6 +14,23 @@
 			<div id="display"></div>
 		</div>
 
+		<section id="overlay">
+			<div id="warning-container">
+				<div id="text">
+					<span id="warning">WARNING</span>
+					<span id="message">You've exceeded your word limit</span>
+				</div>
+				<div class="button-container">
+					<button id="meh" onclick="disableWarning()">
+						meh... I wanna keep going
+					</button>
+					<button id="thanks" onclick="disableWarning()">
+						Thank you for letting me know
+					</button>
+				</div>
+			</div>
+		</section>
+
 		<script src="script.js"></script>
 	</body>
 </html>

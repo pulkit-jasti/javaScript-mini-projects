@@ -41,15 +41,58 @@ a {
 	background-color: lightcoral;
 	position: absolute;
 	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
-	textarea,
-	#display {
-		height: 200px;
-		width: 300px;
+	.top-bar {
+		//background-color: $blue;
+		display: flex;
+		margin-bottom: 30px;
+
+		.box {
+			background-color: rgba(0, 0, 0, 0.3);
+			display: flex;
+			padding: 15px 5px;
+			margin: 0 10px;
+			border-radius: 20px;
+
+			.info {
+				background-color: lightgreen;
+				padding: 19px 20px;
+				margin: 0 10px;
+				border-radius: 15px;
+			}
+
+			button {
+				border: none;
+				outline: none;
+				border-radius: 15px;
+				padding: 19px 20px;
+				margin: 0 10px;
+				font-size: 15px;
+				font-weight: 700;
+				transition-duration: 400ms;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.1, 1.1);
+				}
+			}
+		}
 	}
 
-	#display {
-		background-color: #add8e6;
+	textarea {
+		height: 75%;
+		width: 1000px;
+		outline: none;
+		border: none;
+		border-radius: 10px;
+		padding: 30px;
+		font-size: 17px;
+		font-family: monospace;
+		font-weight: 700;
 	}
 }
 

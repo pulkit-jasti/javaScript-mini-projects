@@ -1,8 +1,8 @@
 let ignore = false;
+let wordLimit = 5;
 
 setInterval(() => {
 	let sentence = document.getElementById('main-input').value;
-	document.getElementById('display').innerHTML = sentence;
 
 	let Words = sentence.split(' ');
 	let wordsLen = Words.length;
@@ -15,22 +15,25 @@ setInterval(() => {
 		wordsLen -= 1;
 	}
 
-	if (wordsLen > 5 && ignore == false) {
-		document.getElementById('overlay').style.display = 'flex';
-		document.getElementById('main-input').maxLength = sentence.length;
+	if (wordsLen > wordLimit && ignore == false) {
+		enableWarning();
 	}
 
-	//console.log(wordCount);
 	console.log(wordsLen);
-	document.getElementById('display').innerHTML = `Words: ${wordsLen}`;
-
-	let wordLimit = 5;
-
-	//document.getElementById('overlay').style.display = 'flex';
+	document.getElementById('word-count').innerHTML = `Words: ${wordsLen}`;
+	document.getElementById(
+		'char-count'
+	).innerHTML = `Characters: ${sentence.length}`;
+	document.getElementById('word-lim').innerHTML = `Word Limit: ${wordLimit}`;
 }, 100);
+
+let enableWarning = () => {
+	document.getElementById('overlay').style.display = 'flex';
+	document.getElementById('main-input').maxLength = 0;
+};
 
 let disableWarning = () => {
 	document.getElementById('overlay').style.display = 'none';
 	ignore = true;
-	document.getElementById('main-input').maxLength = 524288;
+	document.getElementById('main-input').maxLength = 524288; //default
 };

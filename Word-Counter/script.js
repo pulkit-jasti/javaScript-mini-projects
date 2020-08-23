@@ -1,6 +1,7 @@
 let ignoreWordLimitWarning = false;
 let ignoreCharacterLimitWarning = false;
 let wordLimit = 0;
+let charLimit = 0;
 
 setInterval(() => {
 	let sentence = document.getElementById('main-input').value;
@@ -20,14 +21,16 @@ setInterval(() => {
 		enableWordLimit();
 	}
 
-	if (sentence.length > 10 && ignoreCharacterLimitWarning == false) {
-		//enableCharLimit();
+	if (sentence.length > charLimit && ignoreCharacterLimitWarning == false) {
+		enableCharLimit();
+		//console.log('character limit exceeded');
 	}
 
 	console.log(wordsLen);
 	document.getElementById('word-count').innerHTML = `Words: ${wordsLen}`;
 	document.getElementById('char-count').innerHTML = `Characters: ${sentence.length}`;
 	document.getElementById('word-lim').innerHTML = `Word Limit: ${wordLimit}`;
+	document.getElementById('char-lim').innerHTML = `Character Limit: ${charLimit}`;
 }, 100);
 
 //WORD LIMIT FUNCTIONS
@@ -55,23 +58,30 @@ let disableWordLimitWarning = () => {
 };
 
 // WORD LIMIT FUNCTIONS ENDS
+//
+
+//
+// CHARACTER LIMIT FUNCTIONS
 
 let enableSetCharLimit = () => {
 	console.log('set character limit window enabled');
 	document.getElementById('set-char-limit').style.display = 'flex';
 };
 
-let enableCharLimit = () => {
-	console.log('character limit is enabled');
-	document.getElementById('main-input').maxLength = 0;
-	document.getElementById('char-limit-overlay').style.display = 'flex';
+let submitCharLimit = () => {
+	charLimit = document.getElementById('char-limit-input').value;
+	document.getElementById('set-char-limit').style.display = 'none';
 };
 
-let setCharacterLimit = () => {
-	console.log('character limit set');
+let enableCharLimit = () => {
+	document.getElementById('main-input').maxLength = 0;
+	document.getElementById('char-limit-overlay').style.display = 'flex';
 };
 
 let disableCharLimitWarning = () => {
 	document.getElementById('char-limit-overlay').style.display = 'none';
 	document.getElementById('main-input').maxLength = 524288; //default
+	ignoreCharacterLimitWarning = true;
 };
+
+// CHARACTER LIMIT FUNCTIONS ENDS

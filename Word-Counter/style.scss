@@ -88,7 +88,7 @@ a {
 		width: 1000px;
 		outline: none;
 		border: none;
-		border-radius: 10px;
+		border-radius: 20px;
 		padding: 30px;
 		font-size: 17px;
 		font-family: monospace;
@@ -96,7 +96,7 @@ a {
 	}
 }
 
-#overlay {
+#word-limit-overlay {
 	position: absolute;
 	z-index: 2;
 	height: 100vh;
@@ -157,6 +157,137 @@ a {
 }
 
 #set-word-limit {
+	position: absolute;
+	z-index: 4;
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: none;
+	//display: flex;
+	justify-content: center;
+	align-items: center;
+
+	#warning-container {
+		height: 500px;
+		width: 650px;
+		background-color: $silver;
+		border-radius: 13px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		#text {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 50px;
+
+			#warning {
+				margin-bottom: 20px;
+				color: $bright-red;
+				font-size: 70px;
+				font-weight: 700;
+			}
+
+			#message {
+				font-size: 30px;
+			}
+		}
+
+		input {
+			outline: none;
+			border: none;
+			height: 55px;
+			width: 200px;
+			background-color: rgb(235, 235, 235);
+			border-radius: 10px;
+			margin-bottom: 30px;
+			padding: 0 20px;
+			font-size: 17px;
+			font-weight: 700;
+			font-family: monospace;
+		}
+
+		button {
+			outline: none;
+			border: none;
+			padding: 20px;
+			border-radius: 7px;
+			font-size: 15px;
+			font-weight: 700;
+			background-color: rgb(235, 235, 235);
+
+			&:hover {
+				cursor: pointer;
+				background-color: $bright-red;
+				color: #fff;
+			}
+		}
+	}
+}
+
+#char-limit-overlay {
+	position: absolute;
+	z-index: 2;
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: none;
+	//display: flex;
+	justify-content: center;
+	align-items: center;
+
+	#warning-container {
+		height: 500px;
+		width: 650px;
+		background-color: $silver;
+		border-radius: 13px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		#text {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 50px;
+
+			#warning {
+				margin-bottom: 20px;
+				color: $bright-red;
+				font-size: 80px;
+				font-weight: 700;
+			}
+
+			#message {
+				font-size: 30px;
+			}
+		}
+
+		#meh {
+			margin-right: 30px;
+		}
+
+		button {
+			outline: none;
+			border: none;
+			padding: 20px;
+			border-radius: 7px;
+			font-size: 15px;
+			font-weight: 700;
+
+			&:hover {
+				cursor: pointer;
+				background-color: $bright-red;
+				color: #fff;
+			}
+		}
+	}
+}
+
+#set-char-limit {
 	position: absolute;
 	z-index: 4;
 	height: 100vh;

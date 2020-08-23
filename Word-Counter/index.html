@@ -17,7 +17,7 @@
 				</div>
 				<div class="box">
 					<button id="word-limit" onclick="enableSetWordLimit()">Set Word Limit</button>
-					<button id="char-limit">Set Char Limit</button>
+					<button id="char-limit" onclick="enableSetCharLimit()">Set Char Limit</button>
 				</div>
 				<div class="box">
 					<div class="info" id="word-count">Word Count</div>
@@ -27,17 +27,34 @@
 			<textarea id="main-input" cols="30" rows="10"></textarea>
 		</section>
 
-		<section id="overlay">
+		<section id="word-limit-overlay">
 			<div id="warning-container">
 				<div id="text">
 					<span id="warning">WARNING</span>
 					<span id="message">You've exceeded your word limit</span>
 				</div>
 				<div class="button-container">
-					<button id="meh" onclick="disableWarning()">
+					<button id="meh" onclick="disableWordLimitWarning()">
 						meh... I wanna keep going
 					</button>
-					<button id="thanks" onclick="disableWarning()">
+					<button id="thanks" onclick="disableWordLimitWarning()">
+						Thank you for letting me know
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="char-limit-overlay">
+			<div id="warning-container">
+				<div id="text">
+					<span id="warning">WARNING</span>
+					<span id="message">You've exceeded your Character limit</span>
+				</div>
+				<div class="button-container">
+					<button id="meh" onclick="disableCharLimitWarning()">
+						meh... I wanna keep going
+					</button>
+					<button id="thanks" onclick="disableCharLimitWarning()">
 						Thank you for letting me know
 					</button>
 				</div>
@@ -51,7 +68,7 @@
 					<span id="message">Enter the word limit in the text box below <br />(an integer)</span>
 				</div>
 				<input id="word-limit-input" type="text" />
-				<button id="meh" onclick="setWordLimit()">Set Limit</button>
+				<button id="meh" onclick="submitWordLimit()">Set Limit</button>
 			</div>
 		</section>
 
@@ -61,8 +78,8 @@
 					<span id="warning">Set Character Limit</span>
 					<span id="message">Enter the character limit in the text box below <br />(an integer)</span>
 				</div>
-				<input id="word-limit-input" type="text" />
-				<button id="meh" onclick="setWordLimit()">Set Limit</button>
+				<input id="char-limit-input" type="text" />
+				<button id="meh" onclick="setCharLimit()">Set Limit</button>
 			</div>
 		</section>
 

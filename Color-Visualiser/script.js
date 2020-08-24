@@ -89,6 +89,12 @@ const copyRGBToClipboard = () => {
 	el.select();
 	document.execCommand('copy');
 	document.body.removeChild(el);
+
+	//TEXT CHANGE TO COPIED
+	document.getElementById('copied').innerHTML = 'Copied !';
+	setTimeout(() => {
+		document.getElementById('copied').innerHTML = 'Click to copy 👇';
+	}, 3000);
 };
 
 const copyHEXToClipboard = () => {
@@ -101,6 +107,12 @@ const copyHEXToClipboard = () => {
 	el.select();
 	document.execCommand('copy');
 	document.body.removeChild(el);
+
+	//TEXT CHANGE TO COPIED
+	document.getElementById('copied').innerHTML = 'Copied !';
+	setTimeout(() => {
+		document.getElementById('copied').innerHTML = 'Click to copy 👇';
+	}, 3000);
 };
 
 rgbBtn.addEventListener('click', copyRGBToClipboard);

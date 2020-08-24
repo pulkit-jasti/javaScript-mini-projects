@@ -4,26 +4,28 @@ let sliderRed = document.getElementById('slider-red');
 let sliderGreen = document.getElementById('slider-green');
 let sliderBlue = document.getElementById('slider-blue');
 
-let r = 40,
-	g = 0,
-	b = 0,
-	a = 0;
+let Color;
 
 function updateColours() {
 	let r = sliderRed.value;
 	let g = sliderGreen.value;
 	let b = sliderBlue.value;
-	rgb.innerHTML = `rgb(${r},${g},${b})`;
-	bck.style.backgroundColor = `rgb(${r},${g},${b})`;
+	Color = `rgb(${r},${g},${b})`;
+	rgb.innerHTML = Color;
+	bck.style.backgroundColor = Color;
 }
 
 sliderRed.addEventListener('input', updateColours);
 sliderGreen.addEventListener('input', updateColours);
 sliderBlue.addEventListener('input', updateColours);
 
-/*
-sliderBlue.oninput = () => {
-	b = sliderGreen.value;
-	bck.style.backgroundColor = `rgb(${r},${g},${b})`;
+const copyToClipboard = () => {
+	const el = document.createElement('textarea');
+	el.value = Color;
+	document.body.appendChild(el);
+	el.select();
+	document.execCommand('copy');
+	document.body.removeChild(el);
 };
-*/
+
+document.getElementById('rgb').addEventListener('click', copyToClipboard);

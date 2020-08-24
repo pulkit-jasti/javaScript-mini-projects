@@ -53,6 +53,10 @@ $silver: #f8f8f8;
 
 .slider {
 	width: 100%;
+
+	&:nth-child(2) {
+		margin: 10px 0 15px 0;
+	}
 }
 
 .label-container {
@@ -60,6 +64,11 @@ $silver: #f8f8f8;
 	margin-right: 20px;
 	span {
 		display: inline;
+		font-size: 20px;
+
+		&:nth-child(2) {
+			margin: 2.7px 0;
+		}
 	}
 }
 

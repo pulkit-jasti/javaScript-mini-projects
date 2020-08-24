@@ -4,6 +4,7 @@ let hexBtn = document.getElementById('hex');
 let sliderRed = document.getElementById('slider-red');
 let sliderGreen = document.getElementById('slider-green');
 let sliderBlue = document.getElementById('slider-blue');
+let text = document.querySelectorAll('.text');
 
 let rgbString, hexString;
 let r, g, b;
@@ -20,10 +21,23 @@ function updateColours() {
 	hexBtn.innerHTML = hexString;
 
 	bckGround.style.backgroundColor = rgbString;
+	textColorChange();
 }
 
 let rgbColor = () => {
 	return `rgb(${r},${g},${b})`;
+};
+
+let textColorChange = () => {
+	if (r < 100 || g < 100 || b < 100) {
+		for (let i = 0; i < text.length; i++) {
+			text[i].style.color = '#fff';
+		}
+	} else {
+		for (let i = 0; i < text.length; i++) {
+			text[i].style.color = '#000';
+		}
+	}
 };
 
 updateColours(); //To update initial values

@@ -26,11 +26,44 @@ let rgbColor = () => {
 	return `rgb(${r},${g},${b})`;
 };
 
-updateColours();
+updateColours(); //To update initial values
 
 sliderRed.addEventListener('input', updateColours);
 sliderGreen.addEventListener('input', updateColours);
 sliderBlue.addEventListener('input', updateColours);
+
+function hexColor() {
+	let mAp = ['a', 'b', 'c', 'd', 'e', 'f'];
+	let char1;
+	let char2;
+	let flag = 0;
+	let colr = r;
+	let finalHEX = '';
+
+	function convert(char) {
+		let finalChar;
+		char > 9 ? (finalChar = mAp[char - 10]) : (finalChar = `${char}`);
+		return finalChar;
+	}
+
+	for (let i = 0; i < 6; i++) {
+		i > 1 && i < 4 ? (colr = g) : i > 3 ? (colr = b) : console.log('loop end');
+
+		char1 = Math.floor(colr / 16);
+		char2 = (colr / 16 - char1) * 16;
+
+		if (flag == 0) {
+			finalHEX += convert(char1);
+			flag = 1;
+		} else {
+			finalHEX += convert(char2);
+			flag = 0;
+		}
+	}
+	return `#${finalHEX}`;
+}
+
+//Click to copy functions
 
 const copyRGBToClipboard = () => {
 	const el = document.createElement('textarea');
@@ -58,35 +91,3 @@ const copyHEXToClipboard = () => {
 
 rgbBtn.addEventListener('click', copyRGBToClipboard);
 hexBtn.addEventListener('click', copyHEXToClipboard);
-
-function hexColor() {
-	let mAp = ['a', 'b', 'c', 'd', 'e', 'f'];
-	let char1;
-	let char2;
-	let flag = 0;
-	let colr = r;
-	let mainString = '';
-
-	function convert(char) {
-		let finalChar;
-		char > 9 ? (finalChar = mAp[char - 10]) : (finalChar = `${char}`);
-		return finalChar;
-	}
-
-	for (let i = 0; i < 6; i++) {
-		i > 1 && i < 4 ? (colr = g) : i > 3 ? (colr = b) : console.log('loop end');
-
-		char1 = Math.floor(colr / 16);
-		char2 = (colr / 16 - char1) * 16;
-
-		if (flag == 0) {
-			mainString += convert(char1);
-			flag = 1;
-		} else {
-			mainString += convert(char2);
-			flag = 0;
-		}
-	}
-	console.log(mainString);
-	return `#${mainString}`;
-}

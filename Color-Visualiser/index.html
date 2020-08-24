@@ -11,14 +11,21 @@
 	<body>
 		<div class="main-page" id="background">
 			<div class="main-container">
-				<div class="slider-container">
-					<input type="range" min="0" max="255" value="255" id="slider-red" class="slider" />
-					<input type="range" min="0" max="255" value="255" id="slider-green" class="slider" />
-					<input type="range" min="0" max="255" value="255" id="slider-blue" class="slider" />
+				<div class="slider-container flex box">
+					<div class="label-container flex">
+						<span>Red</span>
+						<span>Blue</span>
+						<span>Green</span>
+					</div>
+					<div class="slider-wrapper">
+						<input type="range" min="0" max="255" value="255" id="slider-red" class="slider" />
+						<input type="range" min="0" max="255" value="255" id="slider-green" class="slider" />
+						<input type="range" min="0" max="255" value="255" id="slider-blue" class="slider" />
+					</div>
 				</div>
 				<div class="display">
-					<div id="rgb" class="color-display">rgb(0,0,0)</div>
-					<div id="hex" class="color-display">#000000</div>
+					<div id="rgb" class="color-display box">rgb(0,0,0)</div>
+					<div id="hex" class="color-display box">#000000</div>
 				</div>
 			</div>
 

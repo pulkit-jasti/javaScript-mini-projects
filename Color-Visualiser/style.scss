@@ -104,16 +104,28 @@ $silver: #f8f8f8;
 			}
 
 			#slider-blue::-webkit-slider-thumb {
-				//border-color: #0063ff;
 				border-color: #15aeff;
 			}
 
 			.slider::-moz-range-thumb {
 				width: 25px;
-				height: 20px;
+				height: 25px;
 				border-radius: 0;
-				border: 3px solid black;
+				border: 4px solid black;
+				background-color: rgba(0, 0, 0, 0);
 				cursor: pointer;
+			}
+
+			#slider-red::-moz-range-thumb {
+				border-color: #ff115a;
+			}
+
+			#slider-green::-moz-range-thumb {
+				border-color: #00ff7e;
+			}
+
+			#slider-blue::-moz-range-thumb {
+				border-color: #15aeff;
 			}
 		}
 	}

@@ -10,8 +10,17 @@
 
 	<body>
 		<div class="main-page" id="background">
-			<div class="slider-container">
-				<input type="range" min="1" max="100" id="slider" />
+			<div class="main-container">
+				<div class="slider-container">
+					<input type="range" min="0" max="255" id="slider-red" class="slider" />
+					<input type="range" min="0" max="255" id="slider-green" class="slider" />
+					<input type="range" min="0" max="255" id="slider-blue" class="slider" />
+				</div>
+				<div class="display">
+					<div id="rgb" class="color-display">rgb(0,0,0)</div>
+					<div id="hex" class="color-display">#000000</div>
+					<div id="hsl" class="color-display">hsl(0,0,0)</div>
+				</div>
 			</div>
 
 			<div class="test"></div>

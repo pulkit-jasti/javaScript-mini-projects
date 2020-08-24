@@ -61,7 +61,7 @@ function hexColor() {
 	}
 
 	for (let i = 0; i < 6; i++) {
-		i > 1 && i < 4 ? (colr = g) : i > 3 ? (colr = b) : console.log('loop end');
+		i > 1 && i < 4 ? (colr = g) : i > 3 ? (colr = b) : (mAp[1] = 'a');
 
 		char1 = Math.floor(colr / 16);
 		char2 = (colr / 16 - char1) * 16;

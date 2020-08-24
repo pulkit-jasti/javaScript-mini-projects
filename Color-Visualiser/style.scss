@@ -67,13 +67,23 @@ $silver: #f8f8f8;
 		font-size: 20px;
 
 		&:nth-child(2) {
-			margin: 2.7px 0;
+			margin: 3.5px 0;
 		}
 	}
 }
 
-.display {
-	//background-color: lightsalmon;
+.info {
+	margin-top: 40px;
+	padding: 10px;
+	margin-bottom: 20px;
+	@include flexcenter();
+
+	div {
+		padding: 10px;
+		//border-radius: 100px;
+		text-align: center;
+		width: 200px;
+	}
 }
 
 .box {
@@ -100,6 +110,6 @@ $silver: #f8f8f8;
 	}
 
 	&:first-child {
-		margin: 40px 0;
+		margin-bottom: 40px;
 	}
 }

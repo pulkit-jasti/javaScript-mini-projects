@@ -7,6 +7,8 @@ $gray: #343436;
 $not-black-but-dark: #1c1b20;
 $silver: #f8f8f8;
 
+$shadow-depth: 6px;
+
 //GLOBAL STYLES
 * {
 	margin: 0px;
@@ -55,7 +57,7 @@ body {
 	@include flexcenter();
 
 	.main-container {
-		height: 490px;
+		height: 500px;
 		width: 400px;
 		background-color: #ecf0f3;
 		box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
@@ -64,16 +66,14 @@ body {
 		.display-wrapper {
 			height: 25%;
 			width: 100%;
-			//background-color: lightpink;
 
 			padding: 20px;
 
 			.display {
 				height: 100%;
 				width: 100%;
-				//background-color: lightskyblue;
 				background-color: #ecf0f3;
-				box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+				box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 				border-radius: 30px;
 				resize: none;
 
@@ -97,14 +97,13 @@ body {
 		.numpad {
 			height: 75%;
 			width: 100%;
-			//background-color: lightseagreen;
 
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
 			align-items: center;
 
-			padding: 20px 0;
+			padding-bottom: 20px;
 
 			.btn,
 			#equate,
@@ -112,8 +111,8 @@ body {
 				height: 70px;
 				width: 70px;
 				background-color: #ecf0f3;
-				box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
-				border-radius: 100px;
+				box-shadow: $shadow-depth $shadow-depth 9px #cbced1, -6px -6px 9px #fff;
+				border-radius: 200px;
 
 				margin: 0 10px;
 
@@ -127,7 +126,6 @@ body {
 
 				&:active {
 					box-shadow: none;
-					transform: scale(0.7);
 				}
 			}
 		}

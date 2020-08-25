@@ -17,6 +17,10 @@ $silver: #f8f8f8;
 	background-repeat: no-repeat;
 
 	font-family: sans-serif;
+
+	font-size: 25px;
+	font-weight: 700;
+	color: #555;
 }
 
 //MIXIN
@@ -33,29 +37,44 @@ $silver: #f8f8f8;
 }
 
 //MAIN CSS
+body {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+									supported by Chrome, Edge, Opera and Firefox */
+}
+
 .main-page {
 	//overflow-x: hidden;
 	height: 100vh;
 	width: 100%;
-	background-color: lightcoral;
+	background-color: #ecf0f3;
 	@include flexcenter();
 
 	.main-container {
 		height: 490px;
 		width: 400px;
-		background-color: lightgreen;
+		background-color: #ecf0f3;
+		box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+		border-radius: 45px;
 
 		.display-wrapper {
 			height: 25%;
 			width: 100%;
-			background-color: lightpink;
+			//background-color: lightpink;
 
 			padding: 20px;
 
 			.display {
 				height: 100%;
 				width: 100%;
-				background-color: lightskyblue;
+				//background-color: lightskyblue;
+				background-color: #ecf0f3;
+				box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+				border-radius: 30px;
 				resize: none;
 
 				outline: none;
@@ -65,13 +84,20 @@ $silver: #f8f8f8;
 
 				font-size: 20px;
 				text-align: right;
+
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+
+				&::-webkit-scrollbar {
+					display: none;
+				}
 			}
 		}
 
 		.numpad {
 			height: 75%;
 			width: 100%;
-			background-color: lightseagreen;
+			//background-color: lightseagreen;
 
 			display: flex;
 			flex-wrap: wrap;
@@ -83,19 +109,25 @@ $silver: #f8f8f8;
 			.btn,
 			#equate,
 			#all-clear {
-				height: 60px;
+				height: 70px;
 				width: 70px;
-				background-color: lightgreen;
+				background-color: #ecf0f3;
+				box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+				border-radius: 100px;
 
 				margin: 0 10px;
 
-				font-size: 20px;
-				font-weight: 700;
 				text-align: center;
-				line-height: 60px;
+				line-height: 70px;
+				transition-duration: 200ms;
 
 				&:hover {
 					cursor: pointer;
+				}
+
+				&:active {
+					box-shadow: none;
+					transform: scale(0.7);
 				}
 			}
 		}

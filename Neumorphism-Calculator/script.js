@@ -15,6 +15,7 @@ equate.addEventListener('click', () => {
 	} catch (error) {
 		console.log(`There's a ${error}`);
 		alert('WRITE THE CORRECT EXPRESSION DUMBASS !!!!!!!');
+		input.value = '';
 	}
 	stateCalculated = true;
 });

@@ -7,13 +7,16 @@ let stateCalculated = false;
 
 equate.addEventListener('click', () => {
 	try {
+		if (input.value == 66) {
+			alert('EXECUTING ORDER 66 MY LORD');
+		} else {
+		}
 		input.value = eval(input.value);
 	} catch (error) {
 		console.log(`There's a ${error}`);
 		alert('WRITE THE CORRECT EXPRESSION DUMBASS !!!!!!!');
 	}
 	stateCalculated = true;
-	console.log(eval(input.value));
 });
 
 clear.addEventListener('click', () => {

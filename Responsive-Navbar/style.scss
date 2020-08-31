@@ -15,6 +15,8 @@ $silver: #f8f8f8;
 
 	background-size: cover;
 	background-repeat: no-repeat;
+
+	font-family: sans-serif;
 }
 
 //MIXIN
@@ -30,14 +32,23 @@ $silver: #f8f8f8;
 	transform: translateY(-50%);
 }
 
+body {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
 //MAIN CSS
-main {
+.landing-page {
 	//overflow-x: hidden;
 	height: 100vh;
 	width: 100%;
 	background-color: lightcoral;
 
-	.menu {
+	.menu-btn {
 		position: fixed;
 		top: 30px;
 		right: 30px;
@@ -45,10 +56,14 @@ main {
 		width: 50px;
 		border-radius: 100%;
 		background-color: lightgreen;
-		z-index: 5;
+		z-index: 6;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
-	.menu::before {
+	.menu-btn::before {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -59,13 +74,13 @@ main {
 		text-align: center;
 		line-height: 50px;
 		font-size: 40px;
-		font-weight: 500;
+		font-weight: 100 !important;
+		font-family: serif;
 		transition-duration: 500ms;
-		//background-color: lightblue;
 	}
 
-	.menu.active::before {
-		transform: rotate(400deg);
+	.menu-btn.active::before {
+		transform: rotate(405deg);
 		background-color: lightpink;
 	}
 
@@ -81,13 +96,59 @@ main {
 		z-index: 4;
 
 		&.active {
-			transform: scale(60, 60);
+			transform: scale(100, 100);
 		}
+	}
+
+	.menu-container {
+		position: fixed !important;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100%;
+		@include flexcenter();
+		//display: none;
+		position: relative;
+		z-index: -5;
+		opacity: 0;
+		transition: opacity 1000ms;
+		//background-color: lightseagreen;
+
+		.menu-wrapper {
+			list-style: none;
+			font-weight: 700;
+			font-size: 50px;
+
+			li {
+				margin: 15px 0;
+			}
+		}
+
+		&.active {
+			transition-delay: 00ms;
+			opacity: 1;
+			z-index: 5;
+		}
+	}
+
+	.landing-page-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: lightblue;
 	}
 }
 
-.sample-page {
+.page-2 {
 	height: 100vh;
 	width: 100%;
-	background-color: lightblue;
+	background-color: lightgreen;
+}
+
+.page-3 {
+	height: 100vh;
+	width: 100%;
+	background-color: lightpink;
 }

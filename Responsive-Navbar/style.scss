@@ -55,7 +55,8 @@ body {
 		height: 50px;
 		width: 50px;
 		border-radius: 100%;
-		background-color: lightgreen;
+		background-color: $silver;
+		color: $not-black-but-dark;
 		z-index: 6;
 
 		&:hover {
@@ -68,6 +69,7 @@ body {
 		top: 0;
 		left: 0;
 		content: '+';
+		//color: $gr;
 		width: 100%;
 		height: 100%;
 		border-radius: 100%;
@@ -81,7 +83,8 @@ body {
 
 	.menu-btn.active::before {
 		transform: rotate(405deg);
-		background-color: lightpink;
+		background-color: $gray;
+		color: $silver;
 	}
 
 	.overlay {
@@ -91,8 +94,8 @@ body {
 		height: 50px;
 		width: 50px;
 		border-radius: 100%;
-		background-color: lightsalmon;
-		transition-duration: 500ms;
+		background-color: #eeeeee;
+		transition-duration: 700ms;
 		z-index: 4;
 
 		&.active {
@@ -101,27 +104,58 @@ body {
 	}
 
 	.menu-container {
-		position: fixed !important;
+		position: fixed;
 		top: 0;
 		left: 0;
 		height: 100vh;
 		width: 100%;
-		@include flexcenter();
-		//display: none;
-		position: relative;
 		z-index: -5;
 		opacity: 0;
-		transition: opacity 1000ms;
-		//background-color: lightseagreen;
+		transition: opacity 1500ms;
+		@include flexcenter();
 
 		.menu-wrapper {
 			list-style: none;
-			font-weight: 700;
-			font-size: 50px;
 
 			li {
-				margin: 15px 0;
+				margin: 10px 0;
+				//background-color: lightblue;
+				display: flex;
+				justify-content: left;
+
+				a {
+					text-decoration: none;
+					letter-spacing: 5px;
+					font-weight: 700;
+					font-size: 15vmin;
+					color: rgba(255, 255, 255, 0);
+					-webkit-text-stroke: 1.4px $gray;
+					transition-duration: 200ms;
+
+					&:hover {
+						color: $gray;
+						-webkit-text-stroke: 0px $gray;
+					}
+				}
+
+				span {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+
+					font-size: 68vmin;
+					font-weight: 900;
+					color: rgba(0, 0, 0, 0.2);
+				}
 			}
+		}
+
+		.menu-underlay {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			background-color: lightblue;
 		}
 
 		&.active {
@@ -137,18 +171,18 @@ body {
 		left: 0;
 		height: 100%;
 		width: 100%;
-		background-color: lightblue;
+		background-color: $gray;
+		color: $silver;
+		@include flexcenter();
+		flex-direction: column;
+
+		div {
+			font-size: 120px;
+			font-weight: 700;
+
+			span {
+				font-size: 60px;
+			}
+		}
 	}
-}
-
-.page-2 {
-	height: 100vh;
-	width: 100%;
-	background-color: lightgreen;
-}
-
-.page-3 {
-	height: 100vh;
-	width: 100%;
-	background-color: lightpink;
 }

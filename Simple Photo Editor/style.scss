@@ -40,9 +40,36 @@ main {
 	background-color: #eeeeee;
 	@include flexcenter();
 
+	button {
+		height: 40px;
+		width: 100px;
+		background-color: #000;
+
+		color: #fff;
+		line-height: 40px;
+		font-size: 1.2rem;
+
+		outline: none;
+		border: none;
+		border-radius: 10px;
+
+		box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.1);
+
+		transition-duration: 200ms;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:active {
+			transform: translateY(5px);
+			box-shadow: none;
+		}
+	}
+
 	.left {
 		height: 100%;
-		width: 50%;
+		width: 60%;
 		//background-color: lightblue;
 		form {
 			height: 100%;
@@ -74,43 +101,14 @@ main {
 				border: none;
 				border-radius: 10px;
 				outline: none;
-
-				//box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.1);
-			}
-
-			button {
-				height: 40px;
-				width: 100px;
-				background-color: #000;
-
-				color: #fff;
-				line-height: 40px;
-				font-size: 1.2rem;
-
-				outline: none;
-				border: none;
-				border-radius: 10px;
-
-				box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.1);
-
-				transition-duration: 200ms;
-
-				&:hover {
-					cursor: pointer;
-				}
-
-				&:active {
-					transform: translateY(5px);
-					box-shadow: none;
-				}
 			}
 		}
 	}
 
 	.right {
 		height: 100%;
-		width: 50%;
-		background-color: lightgreen;
+		width: 40%;
+		//background-color: lightgreen;
 		@include flexcenter();
 		flex-direction: column;
 		gap: 30px;

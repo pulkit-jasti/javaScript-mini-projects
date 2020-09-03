@@ -53,7 +53,13 @@ main {
 			img {
 				border-radius: 20px;
 				max-height: 60%;
-				box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.1);
+				box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+
+				transition-duration: 500ms;
+
+				&:hover {
+					transform: scale(1.05, 1.05);
+				}
 			}
 
 			input {
@@ -62,6 +68,8 @@ main {
 				padding: 0 15px;
 
 				font-size: 1.2rem;
+				letter-spacing: 2px;
+				color: rgba(0, 0, 0, 0.6);
 
 				border: none;
 				border-radius: 10px;
@@ -85,7 +93,16 @@ main {
 
 				box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.1);
 
-				transition-duration: 400ms;
+				transition-duration: 200ms;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&:active {
+					transform: translateY(5px);
+					box-shadow: none;
+				}
 			}
 		}
 	}
@@ -94,5 +111,12 @@ main {
 		height: 100%;
 		width: 50%;
 		background-color: lightgreen;
+		@include flexcenter();
+		flex-direction: column;
+		gap: 30px;
+
+		input {
+			width: 300px;
+		}
 	}
 }

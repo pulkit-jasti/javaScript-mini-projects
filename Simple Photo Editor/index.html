@@ -13,6 +13,7 @@
 			<div class="left">
 				<form id="main-form" action="">
 					<img
+						id="image"
 						src="https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 						alt="Error uploading image"
 					/>
@@ -20,9 +21,20 @@
 					<button type="submit">Upload</button>
 				</form>
 			</div>
-			<div class="right"></div>
+			<div class="right">
+				<input class="slider" id="grayscale" type="range" min="0" max="100" />
+				<input class="slider" id="blur" type="range" min="0" max="20" />
+				<input class="slider" id="brightness" type="range" min="0" max="200" />
+				<input class="slider" id="contrast" type="range" min="0" max="200" />
+				<input class="slider" id="hue" type="range" min="0" max="360" />
+				<input class="slider" id="opacity" type="range" min="0" max="100" />
+				<input class="slider" id="color-invert" type="range" min="0" max="100" />
+				<input class="slider" id="saturate" type="range" min="0" max="100" />
+				<input class="slider" id="sepia" type="range" min="0" max="100" />
+			</div>
 		</main>
 
-		<script src="script.js"></script>
+		<!--<script src="script.js"></script>-->
+		<script src="test.js"></script>
 	</body>
 </html>

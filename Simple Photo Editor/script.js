@@ -7,7 +7,12 @@ let sliders = document.querySelectorAll('.slider');
 console.log(sliders);
 document.getElementById('main-form').addEventListener('submit', e => {
 	e.preventDefault();
-	console.log(document.getElementById('image').src);
+	document.getElementById('image').src = `${document.getElementById('img-url').value}`;
+	/*document.getElementById('ptag').innerHTML = `<img
+							id="image"
+							src="${document.getElementById('img-url').value}"
+							alt="Error uploading image"
+						/>`;*/
 });
 
 function updateValues() {

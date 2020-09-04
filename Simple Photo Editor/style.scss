@@ -34,7 +34,7 @@ $silver: #f8f8f8;
 
 //MAIN CSS
 main {
-	//overflow-x: hidden;
+	overflow-x: hidden;
 	height: 100vh;
 	width: 100%;
 	background-color: #eeeeee;
@@ -102,12 +102,18 @@ main {
 				border-radius: 10px;
 				outline: none;
 			}
+
+			div {
+				display: flex;
+				gap: 30px;
+			}
 		}
 	}
 
 	.right {
 		height: 100%;
 		width: 50%;
+		padding-top: 30px;
 		@include flexcenter();
 		justify-content: flex-start;
 		//background-color: lightblue;
@@ -120,6 +126,7 @@ main {
 
 		label {
 			font-size: 1.2rem;
+			font-weight: 700;
 		}
 
 		.slider-container {
@@ -158,6 +165,36 @@ main {
 				background: $thumb-background-color;
 				border-radius: $thumb-border-radius;
 				cursor: pointer;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	main {
+		height: unset;
+		flex-direction: column;
+
+		.left,
+		.right {
+			height: 100vh;
+			width: 100%;
+		}
+
+		.left {
+			form {
+				padding: 0 20px;
+				input {
+					width: 100%;
+				}
+			}
+		}
+
+		.right {
+			justify-content: center;
+
+			.slider-container {
+				grid-template-columns: auto 70%;
 			}
 		}
 	}

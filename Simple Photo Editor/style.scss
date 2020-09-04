@@ -69,7 +69,7 @@ main {
 
 	.left {
 		height: 100%;
-		width: 60%;
+		width: 50%;
 		//background-color: lightblue;
 		form {
 			height: 100%;
@@ -107,14 +107,43 @@ main {
 
 	.right {
 		height: 100%;
-		width: 40%;
+		width: 50%;
 		//background-color: lightgreen;
 		@include flexcenter();
 		flex-direction: column;
 		gap: 30px;
 
-		input {
-			width: 300px;
+		$thumb-length: 25px;
+		$thumb-border-radius: 5px;
+		$thumb-background-color: #000;
+
+		.slider {
+			-webkit-appearance: none;
+			width: 400px;
+			height: 25px;
+			background: #d3d3d3;
+			outline: none;
+			-webkit-transition: 0.2s;
+			border-radius: $thumb-border-radius;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: $thumb-length;
+			height: $thumb-length;
+			background: $thumb-background-color;
+			border-radius: $thumb-border-radius;
+			cursor: pointer;
+			box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.slider::-moz-range-thumb {
+			width: $thumb-length;
+			height: $thumb-length;
+			background: $thumb-background-color;
+			border-radius: $thumb-border-radius;
+			cursor: pointer;
 		}
 	}
 }

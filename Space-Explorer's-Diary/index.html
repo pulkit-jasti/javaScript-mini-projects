@@ -15,34 +15,46 @@
 			</div>
 			<section class="landing-page">
 				<div class="input-wrapper">
-					<form action="">
+					<form action="" id="main-form">
 						<div class="list-input">
-							<input type="text" placeholder="Planet Name" />
+							<input type="text" placeholder="Planet Name" class="box" />
 						</div>
-						<div class="list-input">
+						<div class="list-input distace">
 							<input type="range" />
 						</div>
 						<div class="list-input">
-							<div class="region">
+							<section class="region">
 								<input type="radio" value="Outter Rim" name="region" id="random" />
 								<label for="">Outter Rim</label>
 								<input type="radio" name="region" />
 								<label for="">Inner Rim</label>
-							</div>
+							</section>
 						</div>
 						<div class="list-input">
-							<select name="Inhabitants" id="">
-								<option value="Outter Rims">Outter Rims</option>
-								<option value="Inner Rim">Inner Rim</option>
-								<option value="Unknown Regions">Unknown Regions</option>
+							<select name="Inhabitants" id="" class="box">
+								<option value="Gorax">Gorax</option>
+								<option value="Ewok">Ewok</option>
+								<option value="Kaminon">Kaminoan</option>
+								<option value="Gungan">Gungan</option>
+								<option value="Togruta">Togruta</option>
+								<option value="Wookiee">Wookiee</option>
+								<option value="Mon Calamari">Mon Calamari</option>
+								<option value="Geonosian">Geonosian</option>
+								<option value="Zabrak">Zabrak</option>
+								<option value="Hutt">Hutt</option>
+								<option value="Chiss">Chiss</option>
+								<option value="Sith">Sith</option>
+								<option value="Humans">Humans</option>
+								<option value="Twi’lek">Twi’lek</option>
 							</select>
 						</div>
 						<div class="list-input">
-							<input type="date" />
+							<input type="date" class="box" />
 						</div>
 						<div class="list-input">
-							<textarea name="" id="" cols="30" rows="10" placeholder="Notes"></textarea>
+							<textarea name="" id="" placeholder="Notes" class="box"></textarea>
 						</div>
+						<button type="submit" id="addToList" class="box">Add To List</button>
 					</form>
 				</div>
 				<div class="list-wrapper">list-1</div>
@@ -55,6 +67,10 @@
 			</div>
 		</section>
 
-		<script src="script.js"></script>
+		<script>
+			document.getElementById('main-form').addEventListener('submit', function (e) {
+				e.preventDefault();
+			});
+		</script>
 	</body>
 </html>

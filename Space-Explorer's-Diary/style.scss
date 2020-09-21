@@ -24,6 +24,28 @@ $silver: #f8f8f8;
 	align-items: center;
 }
 
+@mixin box {
+}
+
+.box {
+	padding: 10px 15px;
+
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 700;
+
+	outline: none;
+	border: none;
+	border-radius: 10px;
+
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: saturate(180%) blur(20px);
+
+	&:placeholder {
+		color: #fff;
+	}
+}
+
 //MAIN CSS
 .landing-page {
 	height: 100vh;
@@ -47,11 +69,42 @@ $silver: #f8f8f8;
 	}
 
 	.input-wrapper {
+		//background-color: lightcoral;
+
+		form {
+			height: 100%;
+			width: 100%;
+			padding: 30px 50px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+
+			.list-input {
+				width: 100%;
+
+				input {
+					width: 100%;
+				}
+
+				textarea {
+					height: 130px;
+					width: 100%;
+					resize: none;
+				}
+
+				button {
+					height: 50px;
+					width: 150px;
+				}
+			}
+
+			.distance {
+			}
+		}
 	}
 
 	.list-wrapper {
-		//width: 100%;
-		//background-color: lightcoral;
 	}
 }
 

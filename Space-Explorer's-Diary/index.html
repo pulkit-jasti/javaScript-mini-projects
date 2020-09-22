@@ -20,9 +20,18 @@
 						<div class="list-input">
 							<input id="planetName" class="box" type="text" placeholder="Planet Name" />
 						</div>
-						<div class="list-input distance">
-							<label class="input-title" for="distance">Distance from Capital</label>
-							<input id="distance" class="slider" type="range" value="0" min="0" />
+						<div class="flex">
+							<div class="list-input distance">
+								<label class="input-title" for="distance">Distance from Capital</label>
+								<div class="slider-contiainer">
+									<input id="distance" class="slider" type="range" value="0" min="0" />
+									<p class="slider-value">90 parsec</p>
+								</div>
+							</div>
+							<div class="list-input num-moons">
+								<label class="input-title" for="moons">Number of Moons</label>
+								<input id="moons" class="box" type="number" value="0" />
+							</div>
 						</div>
 						<div class="list-input">
 							<label class="input-title" for="region">Region</label>
@@ -37,28 +46,30 @@
 								</div>
 							</section>
 						</div>
-						<div class="list-input">
-							<label class="input-title">Inhabitants</label>
-							<select name="Inhabitants" id="inhabitants" class="box">
-								<option value="Gorax">Gorax</option>
-								<option value="Ewok">Ewok</option>
-								<option value="Kaminon">Kaminoan</option>
-								<option value="Gungan">Gungan</option>
-								<option value="Togruta">Togruta</option>
-								<option value="Wookiee">Wookiee</option>
-								<option value="Mon Calamari">Mon Calamari</option>
-								<option value="Geonosian">Geonosian</option>
-								<option value="Zabrak">Zabrak</option>
-								<option value="Hutt">Hutt</option>
-								<option value="Chiss">Chiss</option>
-								<option value="Sith">Sith</option>
-								<option value="Humans">Humans</option>
-								<option value="Twi’lek">Twi’lek</option>
-							</select>
-						</div>
-						<div class="list-input">
-							<label class="input-title" for="date">Date discovered</label>
-							<input id="date" type="date" class="box" />
+						<div class="flex">
+							<div class="list-input">
+								<label class="input-title">Inhabitants</label>
+								<select name="Inhabitants" id="inhabitants" class="box">
+									<option value="Gorax">Gorax</option>
+									<option value="Ewok">Ewok</option>
+									<option value="Kaminon">Kaminoan</option>
+									<option value="Gungan">Gungan</option>
+									<option value="Togruta">Togruta</option>
+									<option value="Wookiee">Wookiee</option>
+									<option value="Mon Calamari">Mon Calamari</option>
+									<option value="Geonosian">Geonosian</option>
+									<option value="Zabrak">Zabrak</option>
+									<option value="Hutt">Hutt</option>
+									<option value="Chiss">Chiss</option>
+									<option value="Sith">Sith</option>
+									<option value="Humans">Humans</option>
+									<option value="Twi’lek">Twi’lek</option>
+								</select>
+							</div>
+							<div class="list-input">
+								<label class="input-title" for="date">Date discovered</label>
+								<input id="date" type="date" class="box" />
+							</div>
 						</div>
 						<div class="list-input">
 							<label class="input-title" for="notes">Notes</label>

@@ -47,6 +47,20 @@ $silver: #f8f8f8;
 	}
 }
 
+.flex {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	//background-color: lightblue;
+	//flex-wrap: wrap;
+
+	div {
+		width: 200px;
+		width: fit-content;
+		//background-color: lightgreen;
+	}
+}
+
 //MAIN CSS
 .landing-page {
 	height: 100vh;
@@ -62,7 +76,6 @@ $silver: #f8f8f8;
 		overflow: hidden;
 		width: 48%;
 		height: 90%;
-		padding: 40px;
 		border-radius: 40px;
 
 		background: rgba(255, 255, 255, 0.1);
@@ -71,6 +84,7 @@ $silver: #f8f8f8;
 
 	.input-wrapper {
 		//background-color: lightcoral;
+		padding: 40px 40px 20px 40px;
 
 		form {
 			height: 100%;
@@ -93,8 +107,10 @@ $silver: #f8f8f8;
 				}
 
 				.input-title {
-					margin-bottom: 7px;
+					width: fit-content;
+					margin: 0 0 7px 7px;
 					font-size: 1.2rem;
+					word-wrap: none;
 				}
 
 				input {
@@ -111,6 +127,18 @@ $silver: #f8f8f8;
 							width: min-content;
 							margin-right: 7px;
 						}
+					}
+				}
+
+				#moons {
+					width: 150px;
+				}
+
+				#inhabitants {
+					width: 90%;
+
+					option {
+						color: #000;
 					}
 				}
 
@@ -134,8 +162,29 @@ $silver: #f8f8f8;
 			}
 
 			.distance {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+
+				.slider-contiainer {
+					width: 100%;
+					height: 100%;
+					padding-right: 25px;
+					//background-color: lightblue;
+
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					.slider-value {
+						color: #fff;
+						font-weight: 700;
+						font-size: 1.1rem;
+					}
+				}
+
 				//Slider Styles
-				$slider-width: 100%;
+				$slider-width: 75%;
 				$slider-thickness: 10px;
 				$slider-background-color: #d3d3d3;
 
@@ -145,7 +194,6 @@ $silver: #f8f8f8;
 				$thumb-width: 20px;
 
 				.slider {
-					//The main slider css
 					-webkit-appearance: none;
 					width: $slider-width;
 					height: $slider-thickness;
@@ -174,10 +222,16 @@ $silver: #f8f8f8;
 					cursor: pointer;
 				}
 			}
+
+			.num-moons {
+				//background-color: lightcoral;
+				width: fit-content;
+			}
 		}
 	}
 
 	.list-wrapper {
+		padding: 40px;
 	}
 }
 

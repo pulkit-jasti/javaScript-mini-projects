@@ -32,7 +32,8 @@ $silver: #f8f8f8;
 
 	color: #fff;
 	font-size: 1.2rem;
-	font-weight: 700;
+	font-weight: 600;
+	letter-spacing: 2px;
 
 	outline: none;
 	border: none;
@@ -41,8 +42,8 @@ $silver: #f8f8f8;
 	background: rgba(255, 255, 255, 0.1);
 	backdrop-filter: saturate(180%) blur(20px);
 
-	&:placeholder {
-		color: #fff;
+	&::placeholder {
+		color: rgba(255, 255, 255, 0.6);
 	}
 }
 
@@ -54,14 +55,14 @@ $silver: #f8f8f8;
 	background: url('../images/bck.jpg');
 	background-size: cover;
 	@include flexcenter();
-	//justify-content: space-evenly;
 	justify-content: space-between;
 
 	.input-wrapper,
 	.list-wrapper {
 		overflow: hidden;
-		width: 47%;
+		width: 48%;
 		height: 90%;
+		padding: 40px;
 		border-radius: 40px;
 
 		background: rgba(255, 255, 255, 0.1);
@@ -74,7 +75,6 @@ $silver: #f8f8f8;
 		form {
 			height: 100%;
 			width: 100%;
-			padding: 30px 50px;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
@@ -83,14 +83,48 @@ $silver: #f8f8f8;
 			.list-input {
 				width: 100%;
 
+				label {
+					//padding-bottom: 30px;
+					color: #fff;
+					font-weight: 700;
+					display: block;
+					//font-size: 1.3rem;
+					//background-color: lightblue;
+				}
+
+				.input-title {
+					margin-bottom: 7px;
+					font-size: 1.2rem;
+				}
+
 				input {
 					width: 100%;
 				}
 
+				.region {
+					div {
+						height: 20px;
+						display: flex;
+						align-items: center;
+
+						input {
+							width: min-content;
+							margin-right: 7px;
+						}
+					}
+				}
+
 				textarea {
-					height: 130px;
+					height: 100px;
 					width: 100%;
 					resize: none;
+
+					-ms-overflow-style: none; /* IE and Edge */
+					scrollbar-width: none; /* Firefox */
+
+					&::-webkit-scrollbar {
+						display: none;
+					}
 				}
 
 				button {
@@ -100,6 +134,45 @@ $silver: #f8f8f8;
 			}
 
 			.distance {
+				//Slider Styles
+				$slider-width: 100%;
+				$slider-thickness: 10px;
+				$slider-background-color: #d3d3d3;
+
+				//Thumb Styles
+				$thumb-color: rgba(255, 255, 255, 0.3);
+				$thumb-height: 20px;
+				$thumb-width: 20px;
+
+				.slider {
+					//The main slider css
+					-webkit-appearance: none;
+					width: $slider-width;
+					height: $slider-thickness;
+					//background: $slider-background-color;
+					outline: none;
+					-webkit-transition: 0.2s;
+					transition: opacity 0.2s;
+
+					background: rgba(0, 0, 0, 0.1);
+					backdrop-filter: saturate(180%) blur(20px);
+				}
+
+				.slider::-webkit-slider-thumb {
+					-webkit-appearance: none;
+					appearance: none;
+					width: $thumb-width;
+					height: $thumb-height;
+					background: $thumb-color;
+					cursor: pointer;
+				}
+
+				.slider::-moz-range-thumb {
+					width: $thumb-width;
+					height: $thumb-height;
+					background: $thumb-color;
+					cursor: pointer;
+				}
 			}
 		}
 	}

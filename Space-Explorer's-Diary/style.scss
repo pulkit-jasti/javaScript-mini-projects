@@ -76,7 +76,7 @@ $silver: #f8f8f8;
 		overflow: hidden;
 		width: 48%;
 		height: 90%;
-		border-radius: 40px;
+		border-radius: 30px;
 
 		background: rgba(255, 255, 255, 0.1);
 		backdrop-filter: saturate(180%) blur(10px);
@@ -231,7 +231,61 @@ $silver: #f8f8f8;
 	}
 
 	.list-wrapper {
-		padding: 40px;
+		padding: 10px;
+
+		.flex {
+			justify-content: unset;
+		}
+
+		.planet {
+			//height: 200px;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 20px;
+			backdrop-filter: saturate(180%) blur(20px);
+			-webkit-backdrop-filter: saturate(180%) blur(20px);
+			padding: 20px;
+			color: #fff;
+
+			transition-duration: 300ms;
+
+			.planet-name {
+				font-size: 2rem;
+				margin-bottom: 10px;
+			}
+
+			p {
+				padding: 0 10px;
+				font-size: 1.2rem;
+				letter-spacing: 1px;
+				margin: 3px 0;
+
+				span {
+					font-weight: 700;
+				}
+			}
+
+			.notes {
+				overflow: hidden;
+				//height: 0px;
+				max-height: 0;
+				padding: 0 15px;
+				margin-top: 10px;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 10px;
+				backdrop-filter: saturate(180%) blur(20px);
+				transition-duration: 500ms;
+				//transition-property: padding;
+				transition: max-height 500ms, padding 500ms;
+			}
+
+			&:hover {
+				//height: 400px;
+				.notes {
+					padding: 15px;
+					max-height: 1000px;
+				}
+			}
+		}
 	}
 }
 

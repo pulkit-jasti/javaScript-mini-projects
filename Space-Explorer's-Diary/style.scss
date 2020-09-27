@@ -257,6 +257,7 @@ $silver: #f8f8f8;
 		}
 
 		.planet {
+			position: relative;
 			background: rgba(255, 255, 255, 0.1);
 			border-radius: 20px;
 			margin-bottom: 10px;
@@ -266,6 +267,27 @@ $silver: #f8f8f8;
 			-webkit-backdrop-filter: saturate(180%) blur(20px);
 
 			transition-duration: 300ms;
+
+			.del {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				padding: 8px 15px;
+				color: #fff;
+				font-size: 1.2rem;
+
+				outline: none;
+				border: none;
+				border-radius: 13px;
+
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: saturate(180%) blur(20px);
+				-webkit-backdrop-filter: saturate(180%) blur(20px);
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
 
 			.planet-name {
 				font-size: 2rem;

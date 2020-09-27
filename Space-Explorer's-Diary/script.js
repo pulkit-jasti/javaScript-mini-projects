@@ -1,9 +1,24 @@
+//GETTING DOM ELMENTS
+const planetList = document.getElementById('list-wrapper');
+const form = document.getElementById('main-form');
+let deleteButtons = document.querySelectorAll('.del');
+
+const planetName = document.getElementById('planet-name');
+const distance = document.getElementById('distance');
+const moons = document.getElementById('moons');
+const inhabitants = document.getElementById('inhabitants');
+const date = document.getElementById('date');
+const notes = document.getElementById('notes');
+
+let planets = document.querySelectorAll('.planet');
+
+//MAIN PLANET CLASS (BLUEPRINT OF A SINGLE LIST ITEM)
 class planet {
-	constructor(name, distance, moons, region, inhabitants, date, notes = 'No content added') {
+	constructor(name = 'Unnamed', distance, moons, inhabitants, date, notes = 'No content added') {
 		this.name = name;
 		this.distance = distance;
 		this.moons = moons;
-		this.region = region;
+		//this.region = region;
 		this.inhabitants = inhabitants;
 		this.date = date;
 		this.notes = notes;
@@ -51,6 +66,7 @@ class UI {
 		const newPlanet = document.createElement('div');
 		newPlanet.classList.add('planet');
 		newPlanet.innerHTML = `
+			<button class="del">X</button>
 			<h4 class="planet-name">${planet.name}</h4>
 			<div class="content">
 				<p class="distance"><span>Distance: </span>${planet.distance} Parsec</p>
@@ -62,21 +78,18 @@ class UI {
 			<p class="notes">${planet.notes}</p>
 			`;
 		planetListContainer.appendChild(newPlanet);
-		console.log(newPlanet);
+		newPlanet.children[0].addEventListener('click', function (e) {
+			this.parentElement.remove();
+		});
 	}
 }
 
-document.addEventListener('DOMContentLoaded', UI.displayPlanets);
+document.addEventListener('DOMContentLoaded', () => {
+	console.log('dom loaded');
+	UI.displayPlanets();
 
-let form = document.getElementById('main-form');
-let planetName = document.getElementById('planet-name');
-let distance = document.getElementById('distance');
-let moons = document.getElementById('moons');
-let inhabitants = document.getElementById('inhabitants');
-let date = document.getElementById('date');
-let note = document.getElementById('notes');
-
-form.addEventListener('submit', () => {
-	const newPlanet = new planet(planetName.value, distance.value, moons.value, inhabitants.value, date.value, note.value);
-	UI.addPlanetToList(newPlanet);
+	form.addEventListener('submit', () => {
+		const newPlanet = new planet(planetName.value, distance.value, moons.value, inhabitants.value, date.value, notes.value);
+		UI.addPlanetToList(newPlanet);
+	});
 });

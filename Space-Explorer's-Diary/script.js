@@ -1,5 +1,5 @@
 //GETTING DOM ELMENTS
-const planetList = document.getElementById('list-wrapper');
+/*const planetList = document.getElementById('list-wrapper');*/
 const form = document.getElementById('main-form');
 let deleteButtons = document.querySelectorAll('.del');
 
@@ -12,9 +12,14 @@ const notes = document.getElementById('notes');
 
 let planets = document.querySelectorAll('.planet');
 
+//
+//
+let planetList = [];
+let testList = [];
+
 //MAIN PLANET CLASS (BLUEPRINT OF A SINGLE LIST ITEM)
 class planet {
-	constructor(name = 'Unnamed', distance, moons, inhabitants, date, notes = 'No content added') {
+	constructor(name = 'Unnamed', distance = 8, moons, inhabitants, date, notes = 'No content added') {
 		this.name = name;
 		this.distance = distance;
 		this.moons = moons;
@@ -27,34 +32,7 @@ class planet {
 
 class UI {
 	static displayPlanets() {
-		const storedList = [
-			{
-				name: 'Geonosis',
-				distance: 90,
-				moons: 5,
-				region: 'Inner Rin',
-				inhabitants: 'Geonosians',
-				date: 29,
-				notes: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore aliquid non 
-						nisi fuga possimus. Vel ducimus ad ab culpa at similique accusantium recusandae
-						iste reprehenderit alias repellendus a repellat exercitationem dolorum quos, id 
-						asperiores! Minus, reiciendis explicabo, delectus beatae, cum quaerat eius 
-						doloremque nisi repudiandae impedit amet laborum odit ipsa?`,
-			},
-			{
-				name: 'Kamino',
-				distance: 1000,
-				moons: 9,
-				region: 'Outter Rin',
-				inhabitants: 'Kaminoans',
-				date: 67,
-				notes: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore aliquid non 
-						nisi fuga possimus. Vel ducimus ad ab culpa at similique accusantium recusandae
-						iste reprehenderit`,
-			},
-		];
-
-		const planets = storedList;
+		const planets = storage.getPlanets();
 
 		planets.forEach(planet => {
 			UI.addPlanetToList(planet);
@@ -78,9 +56,41 @@ class UI {
 			<p class="notes">${planet.notes}</p>
 			`;
 		planetListContainer.appendChild(newPlanet);
+
+		//EVENT LISTNER TO CHECK WHEN THE CROSS BUTTON IS PRESSED TO DELETE THE PLANET DATA
 		newPlanet.children[0].addEventListener('click', function (e) {
 			this.parentElement.remove();
+			let thisPlanetName = this.parentElement.children[1].innerHTML;
+			storage.removePlanet(thisPlanetName);
 		});
+	}
+}
+
+class storage {
+	static getPlanets() {
+		let planets;
+		if (localStorage.getItem('planetss') === null) {
+			planets = [];
+		} else {
+			planets = JSON.parse(localStorage.getItem('planetss'));
+		}
+
+		return planets;
+	}
+
+	static addPlanet(planet) {
+		const planets = storage.getPlanets();
+		planets.push(planet);
+		localStorage.setItem('planetss', JSON.stringify(planets));
+	}
+
+	//Delets the planet object with the name (which is a string) passed
+	static removePlanet(planetName) {
+		let fromStorage = JSON.parse(localStorage.getItem('planetss'));
+		fromStorage = fromStorage.filter(item => {
+			return item.name !== planetName;
+		});
+		localStorage.setItem('planetss', JSON.stringify(fromStorage));
 	}
 }
 
@@ -89,7 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	UI.displayPlanets();
 
 	form.addEventListener('submit', () => {
-		const newPlanet = new planet(planetName.value, distance.value, moons.value, inhabitants.value, date.value, notes.value);
+		let newPlanet = new planet(planetName.value, distance.value, moons.value, inhabitants.value, date.value, notes.value);
 		UI.addPlanetToList(newPlanet);
+
+		storage.addPlanet(newPlanet);
 	});
 });

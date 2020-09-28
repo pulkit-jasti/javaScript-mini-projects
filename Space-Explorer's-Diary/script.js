@@ -10,20 +10,15 @@ const inhabitants = document.getElementById('inhabitants');
 const date = document.getElementById('date');
 const notes = document.getElementById('notes');
 
-let planets = document.querySelectorAll('.planet');
-
-//
-//
 let planetList = [];
-let testList = [];
 
 //MAIN PLANET CLASS (BLUEPRINT OF A SINGLE LIST ITEM)
 class planet {
-	constructor(name = 'Unnamed', distance = 8, moons, inhabitants, date, notes = 'No content added') {
+	constructor(name = 'Unnamed', distance = 8, moons, region, inhabitants, date, notes = 'No content added') {
 		this.name = name;
 		this.distance = distance;
 		this.moons = moons;
-		//this.region = region;
+		this.region = region;
 		this.inhabitants = inhabitants;
 		this.date = date;
 		this.notes = notes;
@@ -94,14 +89,34 @@ class storage {
 	}
 }
 
+document.getElementById('');
+function radio(input) {
+	return input;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	console.log('dom loaded');
 	UI.displayPlanets();
 
-	form.addEventListener('submit', () => {
-		let newPlanet = new planet(planetName.value, distance.value, moons.value, inhabitants.value, date.value, notes.value);
-		UI.addPlanetToList(newPlanet);
+	distance.addEventListener('input', function () {
+		document.getElementById('slider-value').innerHTML = `${this.value} parsec`;
+	});
 
+	//Taking input from radio buttons
+	let radioInput;
+	let radioList = document.querySelectorAll('.radio');
+	radioList.forEach(e => {
+		e.addEventListener('input', function () {
+			//console.log(this.value);
+			//console.log(e.checked);
+			radioInput = e.value;
+		});
+	});
+
+	//Submit button event handler
+	form.addEventListener('submit', () => {
+		let newPlanet = new planet(planetName.value, distance.value, moons.value, radioInput, inhabitants.value, date.value, notes.value);
+		UI.addPlanetToList(newPlanet);
 		storage.addPlanet(newPlanet);
 	});
 });

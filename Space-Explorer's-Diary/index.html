@@ -25,7 +25,7 @@
 								<label class="input-title" for="distance">Distance from Capital</label>
 								<div class="slider-contiainer">
 									<input id="distance" class="slider" type="range" value="0" min="0" />
-									<p class="slider-value">90 parsec</p>
+									<p id="slider-value" class="slider-value">0 parsec</p>
 								</div>
 							</div>
 							<div class="list-input num-moons">
@@ -37,11 +37,11 @@
 							<label class="input-title" for="region">Region</label>
 							<section class="region" id="region">
 								<div>
-									<input type="radio" value="Outter Rim" name="region" id="random" />
+									<input class="radio" type="radio" value="Outter Rim" name="region" onclick="radio(this.value)" />
 									<label for="">Outter Rim</label>
 								</div>
 								<div>
-									<input type="radio" name="region" />
+									<input class="radio" type="radio" value="Inner Rim" name="region" onclick="radio(this.value)" />
 									<label for="">Inner Rim</label>
 								</div>
 							</section>

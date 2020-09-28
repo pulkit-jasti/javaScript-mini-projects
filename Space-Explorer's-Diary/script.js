@@ -18,7 +18,11 @@ class planet {
 		this.name = name;
 		this.distance = distance;
 		this.moons = moons;
-		this.region = region;
+		if (region == '') {
+			this.region = 'No content added';
+		} else {
+			this.region = region;
+		}
 		this.inhabitants = inhabitants;
 		this.date = date;
 		this.notes = notes;
@@ -107,16 +111,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	let radioList = document.querySelectorAll('.radio');
 	radioList.forEach(e => {
 		e.addEventListener('input', function () {
-			//console.log(this.value);
-			//console.log(e.checked);
 			radioInput = e.value;
 		});
 	});
 
+	// ADD CLEAR FIELDS UI
 	//Submit button event handler
 	form.addEventListener('submit', () => {
-		let newPlanet = new planet(planetName.value, distance.value, moons.value, radioInput, inhabitants.value, date.value, notes.value);
+		let newPlanet;
+		if (notes.value == '') {
+			newPlanet = new planet(planetName.value, distance.value, moons.value, radioInput, inhabitants.value, date.value, 'No content added');
+		} else {
+			newPlanet = new planet(planetName.value, distance.value, moons.value, radioInput, inhabitants.value, date.value, notes.value);
+		}
+
+		//Update the UI
 		UI.addPlanetToList(newPlanet);
+
+		//Update local storage
 		storage.addPlanet(newPlanet);
+
+		//Reload the page to clear all the inputs
+		location.reload();
 	});
 });

@@ -118,6 +118,8 @@ $silver: #f8f8f8;
 				}
 
 				.region {
+					display: grid;
+					grid-template-columns: auto auto auto;
 					div {
 						height: 20px;
 						display: flex;

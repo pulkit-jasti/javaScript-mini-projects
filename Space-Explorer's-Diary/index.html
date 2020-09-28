@@ -16,9 +16,10 @@
 			</div>
 			<section class="landing-page">
 				<div class="input-wrapper">
-					<form action="" id="main-form">
+					<form action="" id="main-form" autocomplete="off" spellcheck="false">
 						<div class="list-input">
-							<input id="planet-name" class="box" type="text" placeholder="Planet Name" />
+							<label class="input-title" for="planet-name">Planet Name</label>
+							<input id="planet-name" class="box" type="text" placeholder="You discovered it, you name it" required />
 						</div>
 						<div class="flex">
 							<div class="list-input distance">
@@ -35,21 +36,60 @@
 						</div>
 						<div class="list-input">
 							<label class="input-title" for="region">Region</label>
-							<section class="region" id="region">
+							<div class="region" id="region">
 								<div>
-									<input class="radio" type="radio" value="Outter Rim" name="region" onclick="radio(this.value)" />
-									<label for="">Outter Rim</label>
+									<input class="radio" id="deep-core" type="radio" value="Deep Core" name="region" onclick="radio(this.value)" />
+									<label for="deep-core">Deep Core</label>
 								</div>
 								<div>
-									<input class="radio" type="radio" value="Inner Rim" name="region" onclick="radio(this.value)" />
-									<label for="">Inner Rim</label>
+									<input
+										class="radio"
+										id="expansion-region"
+										type="radio"
+										value="Inner Rim"
+										name="region"
+										onclick="radio(this.value)"
+									/>
+									<label for="expansion-region">Expansioin Region</label>
 								</div>
-							</section>
+								<div>
+									<input class="radio" id="mid-rim" type="radio" value="Core Worlds" name="region" onclick="radio(this.value)" />
+									<label for="mid-rim">Mid Rim</label>
+								</div>
+								<div>
+									<input
+										class="radio"
+										id="outer-rim"
+										type="radio"
+										value="Outer Rim"
+										name="region"
+										onclick="radio(this.value)"
+										required
+									/>
+									<label for="outer-rim">Outer Rim</label>
+								</div>
+								<div>
+									<input
+										class="radio"
+										id="unknown-region"
+										type="radio"
+										value="Unknown Regions"
+										name="region"
+										onclick="radio(this.value)"
+									/>
+									<label for="unknown-region">Unknown Regions</label>
+								</div>
+								<div>
+									<input class="radio" id="wild-space" type="radio" value="Wild Space" name="region" onclick="radio(this.value)" />
+									<label for="wild-space">Wild Space</label>
+								</div>
+							</div>
 						</div>
 						<div class="flex">
 							<div class="list-input">
-								<label class="input-title">Inhabitants</label>
+								<label class="input-title" for="inhabitants">Inhabitants</label>
 								<select name="Inhabitants" id="inhabitants" class="box">
+									<option value="No Life">No Life</option>
 									<option value="Gorax">Gorax</option>
 									<option value="Ewok">Ewok</option>
 									<option value="Kaminon">Kaminoan</option>
@@ -68,12 +108,12 @@
 							</div>
 							<div class="list-input">
 								<label class="input-title" for="date">Date discovered</label>
-								<input id="date" type="date" class="box" />
+								<input id="date" type="date" class="box" required />
 							</div>
 						</div>
 						<div class="list-input">
 							<label class="input-title" for="notes">Notes</label>
-							<textarea name="" id="notes" placeholder="Notes" class="box"></textarea>
+							<textarea name="" id="notes" placeholder="Notes: Any other extra information about the world" class="box"></textarea>
 						</div>
 						<button type="submit" id="addToList" class="box">Add To List</button>
 					</form>
